@@ -1,0 +1,14 @@
+
+.footer {
+    background-color: darkgray;
+    padding: 10px;
+    height: 80px;
+    color: white;
+    font-weight:bold;
+    font-size: 15px;
+}
+
+.orders-list {
+    height: 300px;
+    overflow-y: auto;
+}

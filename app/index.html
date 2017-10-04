@@ -1,0 +1,287 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>
+        Dashboard
+    </title>
+    <meta charset="utf-8">
+    <!--    <meta name="viewport" content="initial-scale=1.0">-->
+    <!--    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/custom.css">
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-default">
+            <div class="navbar-brand">
+                Saraswati Offser Printers
+            </div>
+        </nav>
+        <div class="row">
+            <div class="col-sm-7">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#order_list" data-toggle="tab">Orders</a></li>
+                    <li><a href="#payment_list" data-toggle="tab">Due Payments</a></li>
+                    <li><a href="#customer_panel" data-toggle="tab">Customers</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active fade in" id="order_list"><br>
+                        <div class="col-sm-12 text-center">
+                            <div class="alert alert-info text-center">Printing Status</div>
+                            <div class="orders-list">
+                                <table class="table table-striped text-left table-filter">
+                                    <thead>
+                                        <tr>
+                                            <td>Order ID</td>
+                                            <td>Type</td>
+                                            <td>Customer</td>
+                                            <td>Firm Name</td>
+                                            <td>Status</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr data-status="pending" data->
+                                            <td>1.</td>
+                                            <td style="cursor: pointer"><a href="">Bill Book</a></td>
+                                            <td>Rakesh Jain</td>
+                                            <td>R.B. Mining</td>
+                                            <td>
+                                                <span class="label label-warning">pending</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2.</td>
+                                            <td style="cursor: pointer"><a href="">Letter Pad</a></td>
+                                            <td>Suresh Pareek</td>
+                                            <td>Ms. S. general Store</td>
+                                            <td>
+                                                <span class="label label-warning">pending</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3.</td>
+                                            <td><a href="">Stickers</a></td>
+                                            <td>Ankur Sharma</td>
+                                            <td>Ms. A painters</td>
+                                            <td>
+                                                <span class="label label-warning">pending</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>1.</td>
+                                            <td style="cursor: pointer"><a href="">Bill Book</a></td>
+                                            <td>Abhishek Soni</td>
+                                            <td>S.Tech</td>
+                                            <td>
+                                                <span class="label label-info">In Progress</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in" id="payment_list">
+                        <br>
+                        <div class="col-sm-12">
+                            <div class="alert alert-warning text-center">Due Payments</div>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <td>Id</td>
+                                        <td>Type</td>
+                                        <td>Customer</td>
+                                        <td>Firm</td>
+                                        <td>Payment Due</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1.</td>
+                                        <td style="cursor: pointer"><a href="">Bill Book</a></td>
+                                        <td>Abhishek Soni</td>
+                                        <td>S.Tech</td>
+
+                                        <td>500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1.</td>
+                                        <td style="cursor: pointer"><a href="">Later pad</a></td>
+                                        <td>Sonu Tiwari</td>
+                                        <td>R.B. Mining</td>
+
+                                        <td>400</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in" id="customer_panel">
+                        <br>
+                        <div class="customer-panel">
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5" align="center">
+                <div class="badge badge-pill badge-info">Order Details</div>
+                <br>
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <td>Order ID.</td>
+                            <td>14</td>
+                        </tr>
+                        <tr>
+                            <td>Type:</td>
+                            <td>Bill Book</td>
+                        </tr>
+                        <tr>
+                            <td>Customer:</td>
+                            <td>Suresh Jain</td>
+                        </tr>
+                        <tr>
+                            <td>Firm:</td>
+                            <td>Jain Traders</td>
+                        </tr>
+
+                        <tr>
+                            <td>Description:</td>
+                            <td>1 to 200, blue+white</td>
+                        </tr>
+                        <tr>
+                            <td>Order Date:</td>
+                            <td>22/07/2017</td>
+                        </tr>
+                        <tr>
+                            <td>Delivery Date:</td>
+                            <td><input type="date" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td>Total:</td>
+                            <td>600</td>
+                        </tr>
+                        <tr>
+                            <td>Discount:</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>Advance:</td>
+                            <td>400</td>
+                        </tr>
+                        <tr>
+                            <td>Due:</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>Status:</td>
+                            <td>
+                                <input type="radio" name="payment"> <span class="label label-warning">Pending</span> |
+                                <input type="radio" name="payment"> <span class="label label-info">In Progress</span> |
+                                <input type="radio" name="payment"> <span class="label label-default">Completed</span><input type="radio" name="payment"> <span class="label label-success">Delivered</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Due Payment:</td>
+                            <td>
+                                <input type="radio" name="payment"> <span class="label label-success">Received</span> |
+                                <input type="radio" name="payment"> <span class="label label-danger">Due</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><button class="btn btn-info"><i class="glyphicon glyphicon-check"></i> Update </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="col-xs-6">
+            <ul class="list-inline">
+                <li><a href="#">About</a></li>
+                <li><a href="#">TnC</a></li>
+                <li><a href="#">Home</a></li>
+            </ul>
+        </div>
+        <div class="col-xs-6 text-right">
+            &copy;2017 saraswatiprinters.in<br> Kotri, Bhilwara, 311603
+        </div>
+    </footer>
+    <div class="modal fade" id="add_order" role="dialog">
+        <div class="modal-dialog">
+            <!--modal-content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add New Order</h4>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="" name="userProfile" id="profile_form">
+                        <table class="table table-striped">
+                            <tbody>
+                                <tr>
+                                    <td>Order ID:</td>
+                                    <td><input type="text" disabled class="form-control" name="username" value="4"></td>
+                                </tr>
+                                <tr>
+                                    <td>Type</td>
+                                    <td><input list="types" class="form-control" name="facebook">
+                                        <datalist id="types">
+                                         <option value="billbook">Bill Book</option>
+                                         <option value="pamplates">Pamplates</option>
+                                        </datalist>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Firm Name</td>
+                                    <td><input type="text" class="form-control"></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Description</td>
+                                    <td><textarea type="text" class="form-control"></textarea>
+                                </tr>
+                                <tr>
+                                    <td>Date</td>
+                                    <td><input type="date" class="form-control" name="date" id="order_date"></td>
+                                </tr>
+                                <tr>
+                                    <td>Total:</td>
+                                    <td>
+                                        <div cl ass="row">
+                                            <div class="col-xs-3"><input type="number" class="form-control" name="googleplus" value="" placeholder="Total"></div>
+                                            <div class="col-xs-3"><input type="number" class="form-control" name="googleplus" value="" placeholder="Discount"></div>
+                                            <div class="col-xs-3"><input type="number" class="form-control" name="googleplus" value="" placeholder="Advance"></div>
+                                            <div class="col-xs-3"><input type="number" class="form-control" name="googleplus" value="" placeholder="Due"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <span colspan="2" class="alert alert-info"><span id="msgs">&nbsp;</span>
+                    </span>
+                    <button type="submit" id="update_btn" name="submit" value="submit" class="btn btn-info pull-right">Add Order</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+    <!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
+    <script src="assets/libs/jquery.min.js"></script>
+    <script src="assets/libs/bootstrap.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+</body>
+
+</html>
