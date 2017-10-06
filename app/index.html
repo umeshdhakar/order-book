@@ -13,7 +13,7 @@
     <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
 </head>
 
-<body>
+<body ng-app="order-book">
     <div class="container-fluid">
         <nav class="navbar navbar-default">
             <div class="navbar-brand">
@@ -23,13 +23,13 @@
         <div class="row">
             <div class="col-sm-7">
                 <ul class="nav nav-tabs">
-                    <li class="active"><a href="#order_list" data-toggle="tab">Orders</a></li>
+                    <li class="active"><a href="#order_list" data-toggle="tab">Pending Orders</a></li>
                     <li><a href="#payment_list" data-toggle="tab">Due Payments</a></li>
                     <li><a href="#customer_panel" data-toggle="tab">Customers</a></li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active fade in" id="order_list"><br>
-                        <div class="col-sm-12 text-center">
+                        <div class="col-sm-12" ng-controller="PendingOrderController as pendingOrder">
                             <div class="alert alert-info text-center">Printing Status</div>
                             <div class="orders-list">
                                 <table class="table table-striped text-left table-filter">
@@ -43,6 +43,16 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <tr ng-repeat="order in pendingOrder.list">
+                                            <td>{{order.id}}</td>
+                                            <td><a href="">{{order.type}}</a></td>
+                                            <td>{{order.customer}}</td>
+                                            <td>{{order.firm}}</td>
+                                            <td>
+                                                <span ng-class="{'label label-info' : order.status=='printed', 'label label-warning' : order.status=='pending'}">{{order.status}}</span>
+                                            </td>
+                                        </tr>
+
                                         <tr data-status="pending" data->
                                             <td>1.</td>
                                             <td style="cursor: pointer"><a href="">Bill Book</a></td>
@@ -86,12 +96,12 @@
                     </div>
                     <div class="tab-pane fade in" id="payment_list">
                         <br>
-                        <div class="col-sm-12">
+                        <div class="col-sm-12" ng-controller="DueOrderController as dueOrder">
                             <div class="alert alert-warning text-center">Due Payments</div>
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <td>Id</td>
+                                        <td>Order ID</td>
                                         <td>Type</td>
                                         <td>Customer</td>
                                         <td>Firm</td>
@@ -99,6 +109,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <tr ng-repeat="order in dueOrder.list">
+                                        <td>{{order.id}}</td>
+                                        <td><a href="">{{order.type}}</a></td>
+                                        <td>{{order.customer}}</td>
+                                        <td>{{order.firm}}</td>
+                                        <td>{{order.due}}</td>
+
+                                    </tr>
                                     <tr>
                                         <td>1.</td>
                                         <td style="cursor: pointer"><a href="">Bill Book</a></td>
@@ -281,7 +299,13 @@
     <!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
     <script src="assets/libs/jquery.min.js"></script>
     <script src="assets/libs/bootstrap.min.js"></script>
+    <script src="assets/libs/angular.min.js"></script>
     <script src="assets/js/custom.js"></script>
+    <script src="app.module.js"></script>
+    <script src="controllers/pendingOrder.controller.js"></script>
+    <script src="controllers/dueOrder.controller.js"></script>
+    <script src="services/pendingOrder.service.js"></script>
+    <script src="services/dueOrder.service.js"></script>
 </body>
 
 </html>
