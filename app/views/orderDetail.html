@@ -1,0 +1,68 @@
+<table class="table table-striped">
+    <tbody>
+        <tr>
+            <td>Order ID.</td>
+            <td>{{orderDetail.data.id}}</td>
+        </tr>
+        <tr>
+            <td>Type:</td>
+            <td>{{orderDetail.data.type}}</td>
+        </tr>
+        <tr>
+            <td>Customer:</td>
+            <td>{{orderDetail.data.customer}}</td>
+        </tr>
+        <tr>
+            <td>Firm:</td>
+            <td>{{orderDetail.data.firm}}</td>
+        </tr>
+
+        <tr>
+            <td>Description:</td>
+            <td>{{orderDetail.data.description}}</td>
+        </tr>
+        <tr>
+            <td>Order Date:</td>
+            <td>{{orderDetail.data.order_date}}</td>
+        </tr>
+        <tr>
+            <td>Delivery Date:</td>
+            <td><input type="date" class="form-control"></td>
+        </tr>
+        <tr>
+            <td>Total:</td>
+            <td>{{orderDetail.data.total}}</td>
+        </tr>
+        <tr>
+            <td>Discount:</td>
+            <td>{{orderDetail.data.discount}}</td>
+        </tr>
+        <tr>
+            <td>Advance:</td>
+            <td>{{orderDetail.data.advance}}</td>
+        </tr>
+        <tr>
+            <td>Due:</td>
+            <td>{{orderDetail.data.due}}</td>
+        </tr>
+        <tr>
+            <td>Status:</td>
+            <td>
+                <input type="radio" ng-model="orderDetail.status" name="status" value="pending"> <span class="label label-warning">Pending</span> |
+                <input type="radio" name="status" value="progress"> <span class="label label-info">In Progress</span> |
+                <input type="radio" name="status" ng-checked="{'true': orderDetail.data.status=='completed'}" value="completed"> <span class="label label-default">Completed</span><input type="radio" name="status" value="delievered"> <span class="label label-success">Delivered</span>
+            </td>
+        </tr>
+        <tr>
+            <td>Due Payment:</td>
+            <td>
+                <input type="radio" name="payment"> <span class="label label-success">Received</span> |
+                <input type="radio" name="payment"> <span class="label label-danger">Due</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><button class="btn btn-info"><i class="glyphicon glyphicon-check"></i> Update </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

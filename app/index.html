@@ -45,7 +45,7 @@
                                     <tbody>
                                         <tr ng-repeat="order in pendingOrder.list">
                                             <td>{{order.id}}</td>
-                                            <td><a href="">{{order.type}}</a></td>
+                                            <td><a href="#!order/{{order.id}}">{{order.type}}</a></td>
                                             <td>{{order.customer}}</td>
                                             <td>{{order.firm}}</td>
                                             <td>
@@ -55,7 +55,7 @@
 
                                         <tr data-status="pending" data->
                                             <td>1.</td>
-                                            <td style="cursor: pointer"><a href="">Bill Book</a></td>
+                                            <td><a href="#!order/2">Stickers</a></td>
                                             <td>Rakesh Jain</td>
                                             <td>R.B. Mining</td>
                                             <td>
@@ -80,15 +80,6 @@
                                                 <span class="label label-warning">pending</span>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>1.</td>
-                                            <td style="cursor: pointer"><a href="">Bill Book</a></td>
-                                            <td>Abhishek Soni</td>
-                                            <td>S.Tech</td>
-                                            <td>
-                                                <span class="label label-info">In Progress</span>
-                                            </td>
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -111,7 +102,7 @@
                                 <tbody>
                                     <tr ng-repeat="order in dueOrder.list">
                                         <td>{{order.id}}</td>
-                                        <td><a href="">{{order.type}}</a></td>
+                                        <td><a href="#!order/{{order.id}}">{{order.type}}</a></td>
                                         <td>{{order.customer}}</td>
                                         <td>{{order.firm}}</td>
                                         <td>{{order.due}}</td>
@@ -149,74 +140,8 @@
             <div class="col-sm-5" align="center">
                 <div class="badge badge-pill badge-info">Order Details</div>
                 <br>
-                <table class="table table-striped">
-                    <tbody>
-                        <tr>
-                            <td>Order ID.</td>
-                            <td>14</td>
-                        </tr>
-                        <tr>
-                            <td>Type:</td>
-                            <td>Bill Book</td>
-                        </tr>
-                        <tr>
-                            <td>Customer:</td>
-                            <td>Suresh Jain</td>
-                        </tr>
-                        <tr>
-                            <td>Firm:</td>
-                            <td>Jain Traders</td>
-                        </tr>
-
-                        <tr>
-                            <td>Description:</td>
-                            <td>1 to 200, blue+white</td>
-                        </tr>
-                        <tr>
-                            <td>Order Date:</td>
-                            <td>22/07/2017</td>
-                        </tr>
-                        <tr>
-                            <td>Delivery Date:</td>
-                            <td><input type="date" class="form-control"></td>
-                        </tr>
-                        <tr>
-                            <td>Total:</td>
-                            <td>600</td>
-                        </tr>
-                        <tr>
-                            <td>Discount:</td>
-                            <td>100</td>
-                        </tr>
-                        <tr>
-                            <td>Advance:</td>
-                            <td>400</td>
-                        </tr>
-                        <tr>
-                            <td>Due:</td>
-                            <td>100</td>
-                        </tr>
-                        <tr>
-                            <td>Status:</td>
-                            <td>
-                                <input type="radio" name="payment"> <span class="label label-warning">Pending</span> |
-                                <input type="radio" name="payment"> <span class="label label-info">In Progress</span> |
-                                <input type="radio" name="payment"> <span class="label label-default">Completed</span><input type="radio" name="payment"> <span class="label label-success">Delivered</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Due Payment:</td>
-                            <td>
-                                <input type="radio" name="payment"> <span class="label label-success">Received</span> |
-                                <input type="radio" name="payment"> <span class="label label-danger">Due</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><button class="btn btn-info"><i class="glyphicon glyphicon-check"></i> Update </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div ng-view></div>
+                
             </div>
         </div>
     </div>
@@ -300,11 +225,15 @@
     <script src="assets/libs/jquery.min.js"></script>
     <script src="assets/libs/bootstrap.min.js"></script>
     <script src="assets/libs/angular.min.js"></script>
+    <script src="assets/libs/angular-route.min.js"></script>
     <script src="assets/js/custom.js"></script>
     <script src="app.module.js"></script>
     <script src="controllers/pendingOrder.controller.js"></script>
+    <script src="controllers/orderDetail.controller.js"></script>
     <script src="controllers/dueOrder.controller.js"></script>
+    <script src="routing/config.js"></script>
     <script src="services/pendingOrder.service.js"></script>
+    <script src="services/orderDetail.service.js"></script>
     <script src="services/dueOrder.service.js"></script>
 </body>
 
