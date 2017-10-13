@@ -49,7 +49,7 @@
                                             <td>{{order.customer}}</td>
                                             <td>{{order.firm}}</td>
                                             <td>
-                                                <span ng-class="{'label label-info' : order.status=='printed', 'label label-warning' : order.status=='pending'}">{{order.status}}</span>
+                                                <span ng-class="{'label label-info' : order.status=='progress', 'label label-warning' : order.status=='pending'}">{{order.status}}</span>
                                             </td>
                                         </tr>
 
@@ -187,12 +187,6 @@
                                     <td>Description</td>
                                     <td><textarea type="text" class="form-control" name="description" ng-model="orders.newOrder.description"></textarea>
                                 </tr>
-<!--
-                                <tr>
-                                    <td>Date</td>
-                                    <td><input type="date" class="form-control" name="date" ng-model="orders.newOrder.date" id="order_date"></td>
-                                </tr>
--->
                                 <tr>
                                     <td>Total:</td>
                                     <td>
@@ -246,7 +240,6 @@
     <script src="assets/libs/bootstrap.min.js"></script>
     <script src="assets/libs/angular.min.js"></script>
     <script src="assets/libs/angular-route.min.js"></script>
-    <script src="assets/js/custom.js"></script>
     <script src="app.module.js"></script>
     <script src="controllers/pendingOrder.controller.js"></script>
     <script src="controllers/customerOrder.controller.js"></script>
