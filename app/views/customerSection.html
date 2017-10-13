@@ -1,0 +1,29 @@
+<div class="col-xs-offset-2 col-xs-8">
+    <div class="input-group">
+        <input list="customers" class="form-control" name="search" ng-model="customers.id" name="search" placeholder="Search Customer">
+        <datalist id="customers">
+            <option ng-repeat="customer in customers.list" value="{{customer.id}}">{{customer.name}}</option>
+            <option value="mike"></option>
+        </datalist>
+        <span class="input-group-btn">
+            <button type="button" class="btn btn-info" name="search" value="Search" ng-click="customers.getCustomerOrders(customers.id)">
+                <i><span class="glyphicon glyphicon-arrow-right"></span></i>
+        </button>
+        </span>
+    </div>
+    <hr>
+    <form class="form-group" ng-submit="customers.addCustomer()">
+        <div class="form-group">
+            <input type="text" class="form-control" name="customer_name" ng-model="customers.data.name" placeholder="Customer name...">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="customer_address" ng-model="customers.data.address" placeholder="Address...">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="customer_contact" ng-model="customers.data.contact" placeholder="Contact...">
+        </div>
+        <button type="submit" class="btn btn-info" name="addNewCustomer" value="add">Add new Customer <i><span class="glyphicon glyphicon-plus"></span></i>
+        </button>
+        <div class="label label-info">{{customers.message}}</div>
+    </form>
+</div>

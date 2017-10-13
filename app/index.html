@@ -130,10 +130,94 @@
                     </div>
                     <div class="tab-pane fade in" id="customer_panel">
                         <br>
-                        <div class="customer-panel">
+                        <div class="col-sm-12" ng-controller="CustomerOrderController as orders">
+                           <div ng-if="orders.isCustomerSelected==true"> 
+                            <div class="alert alert-info text-center">
+                        {{orders.customerData.name}}, {{orders.customerData.contact}}
+                        <br>{{orders.customerData.address}}
+                                <button type="button" data-toggle="modal" data-target="#add_order" class="btn btn-info pull-right"><i class="glyphicon glyphicon-plus"></i> Add new order</button>
+                            </div>
+                        <div class="orders-list" >
+                            <table class="table table-striped text-left  ">
+                                <thead>
+                                    <tr>
+                                        <td>Order ID</td>
+                                        <td>Type</td>
+                                        <td>Firm</td>
+                                        <td>Date</td>
+                                        <td>Status</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="order in orders.list">
+                                        <td>{{order.id}}</td>
+                                        <td><a href="#!order/{{order.id}}">{{order.type}}</a></td>
+                                        <td>{{order.firm}}</td>
+                                        <td>{{order.order_date}}</td>
+                                        <td ng-class="{'label label-warning' : order.status=='pending', 'label label-default' : order.status=='completed', 'label label-info' : order.status=='progress', 'label label-success' : order.status=='delivered'}">{{order.status}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
+                        </div>
+                        <div class="modal fade" id="add_order" role="dialog">
+        <div class="modal-dialog">
+            <!--modal-content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add New Order</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="profile_form">
+                        <table class="table table-striped">
+                            <tbody>
+                                <tr>
+                                    <td>Type</td>
+                                    <td><input type="text" class="form-control" name="type" ng-model="orders.newOrder.type">
+                                    </td>
+                                </tr>
 
+                                <tr>
+                                    <td>Firm Name</td>
+                                    <td><input type="text" class="form-control" name="firm" ng-model="orders.newOrder.firm"></td>
+                                </tr>
 
+                                <tr>
+                                    <td>Description</td>
+                                    <td><textarea type="text" class="form-control" name="description" ng-model="orders.newOrder.description"></textarea>
+                                </tr>
+<!--
+                                <tr>
+                                    <td>Date</td>
+                                    <td><input type="date" class="form-control" name="date" ng-model="orders.newOrder.date" id="order_date"></td>
+                                </tr>
+-->
+                                <tr>
+                                    <td>Total:</td>
+                                    <td>
+                                        <div cl ass="row">
+                                            <div class="col-xs-3"><input type="number" class="form-control" name="total" ng-model="orders.newOrder.total" placeholder="Total"></div>
+                                            <div class="col-xs-3"><input type="number" class="form-control" name="discount" ng-model="orders.newOrder.discount" value="" placeholder="Discount"></div>
+                                            <div class="col-xs-3"><input type="number" class="form-control" name="advance" ng-model="orders.newOrder.advance" value="" placeholder="Advance"></div>
+                                            <div class="col-xs-3"><input type="number" class="form-control" name="due" ng-model="orders.newOrder.due" value="" placeholder="Due"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <span colspan="2" class="alert alert-info"><span id="msgs">&nbsp;</span>
+                    </span>
+                    <button type="submit" ng-click="orders.addNewOrder()" class="btn btn-info pull-right">Add Order</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -141,7 +225,7 @@
                 <div class="badge badge-pill badge-info">Order Details</div>
                 <br>
                 <div ng-view></div>
-                
+
             </div>
         </div>
     </div>
@@ -157,69 +241,7 @@
             &copy;2017 saraswatiprinters.in<br> Kotri, Bhilwara, 311603
         </div>
     </footer>
-    <div class="modal fade" id="add_order" role="dialog">
-        <div class="modal-dialog">
-            <!--modal-content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Add New Order</h4>
-                </div>
-                <div class="modal-body">
-                    <form method="post" action="" name="userProfile" id="profile_form">
-                        <table class="table table-striped">
-                            <tbody>
-                                <tr>
-                                    <td>Order ID:</td>
-                                    <td><input type="text" disabled class="form-control" name="username" value="4"></td>
-                                </tr>
-                                <tr>
-                                    <td>Type</td>
-                                    <td><input list="types" class="form-control" name="facebook">
-                                        <datalist id="types">
-                                         <option value="billbook">Bill Book</option>
-                                         <option value="pamplates">Pamplates</option>
-                                        </datalist>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>Firm Name</td>
-                                    <td><input type="text" class="form-control"></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Description</td>
-                                    <td><textarea type="text" class="form-control"></textarea>
-                                </tr>
-                                <tr>
-                                    <td>Date</td>
-                                    <td><input type="date" class="form-control" name="date" id="order_date"></td>
-                                </tr>
-                                <tr>
-                                    <td>Total:</td>
-                                    <td>
-                                        <div cl ass="row">
-                                            <div class="col-xs-3"><input type="number" class="form-control" name="googleplus" value="" placeholder="Total"></div>
-                                            <div class="col-xs-3"><input type="number" class="form-control" name="googleplus" value="" placeholder="Discount"></div>
-                                            <div class="col-xs-3"><input type="number" class="form-control" name="googleplus" value="" placeholder="Advance"></div>
-                                            <div class="col-xs-3"><input type="number" class="form-control" name="googleplus" value="" placeholder="Due"></div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <span colspan="2" class="alert alert-info"><span id="msgs">&nbsp;</span>
-                    </span>
-                    <button type="submit" id="update_btn" name="submit" value="submit" class="btn btn-info pull-right">Add Order</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    
     <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
     <!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
     <script src="assets/libs/jquery.min.js"></script>
@@ -229,12 +251,16 @@
     <script src="assets/js/custom.js"></script>
     <script src="app.module.js"></script>
     <script src="controllers/pendingOrder.controller.js"></script>
+    <script src="controllers/customerOrder.controller.js"></script>
     <script src="controllers/orderDetail.controller.js"></script>
     <script src="controllers/dueOrder.controller.js"></script>
+    <script src="controllers/customerSection.controller.js"></script>
     <script src="routing/config.js"></script>
     <script src="services/pendingOrder.service.js"></script>
     <script src="services/orderDetail.service.js"></script>
+    <script src="services/customerSection.service.js"></script>
     <script src="services/dueOrder.service.js"></script>
+
 </body>
 
 </html>

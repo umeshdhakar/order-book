@@ -54,13 +54,4 @@ $(function () {
                 $('#order_date').val(year + '-' + mon + '-' + date);
             }
             setTodayDate();
-            $(document).on('click', '.addNewCustomer',function () {
-                    $('.customer-panel').empty();
-                    $('.customer-panel').load('../../views/customer.html');
-                }); 
-            $('.customer-panel').load('../../views/open.html');
-            $(document).on('click', '#back', function () {
-                    $('.customer-panel').empty();
-                    $('.customer-panel').load('../../views/open.html');
-                });
             });
