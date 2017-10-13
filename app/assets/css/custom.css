@@ -1,14 +1,16 @@
 
 .footer {
     background-color: darkgray;
-    padding: 10px;
-    height: 80px;
+    padding: 2px;
+    height: 32px;
     color: white;
-    font-weight:bold;
-    font-size: 15px;
+    font-size: 13px;
+    bottom: 0px;
+    width: 100%;
+    position: absolute;
 }
 
-.orders-list {
+.order-list {
     height: 300px;
     overflow-y: auto;
 }

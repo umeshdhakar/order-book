@@ -23,7 +23,8 @@
         customers.addCustomer = function () {
             var promise = CustomerSectionService.addCustomer(customers.data);
             promise.then(function (response) {
-                customers.message = response.statusText;
+                if(response.statusText==='Created')
+                customers.message = 'User Added Successfully';
                 getCustomerList();
             }).catch(function (error) {
                 console.log('wrong');

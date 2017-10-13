@@ -2,11 +2,14 @@
     'use strict';
     angular.module('order-book')
         .controller('PendingOrderController', PendingOrderController);
-    PendingOrderController.$inject = ['PendingOrderService'];
+    PendingOrderController.$inject = ['$rootScope', 'PendingOrderService'];
 
-    function PendingOrderController(PendingOrderService) {
+    function PendingOrderController($rootScope, PendingOrderService) {
         var pendingOrder = this;
-        var promise = PendingOrderService.getList();
+        
+        function getPendingOrders(){
+            
+            var promise = PendingOrderService.getList();
         promise.then(function (response) {
                 pendingOrder.list = response.data;
                 console.log(pendingOrder.list);
@@ -14,6 +17,11 @@
             .catch(function (error) {
                 console.log('something wrong');
             });
+        }
+        getPendingOrders();
+        $rootScope.$on('refreshPendingList', function(){
+                getPendingOrders();
+        });
     }
 
 })();

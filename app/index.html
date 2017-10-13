@@ -3,7 +3,7 @@
 
 <head>
     <title>
-        Dashboard
+        Order Book
     </title>
     <meta charset="utf-8">
     <!--    <meta name="viewport" content="initial-scale=1.0">-->
@@ -17,7 +17,7 @@
     <div class="container-fluid">
         <nav class="navbar navbar-default">
             <div class="navbar-brand">
-                Saraswati Offser Printers
+                Saraswati Offset Printers | ORDER BOOK
             </div>
         </nav>
         <div class="row">
@@ -31,8 +31,8 @@
                     <div class="tab-pane active fade in" id="order_list"><br>
                         <div class="col-sm-12" ng-controller="PendingOrderController as pendingOrder">
                             <div class="alert alert-info text-center">Printing Status</div>
-                            <div class="orders-list">
-                                <table class="table table-striped text-left table-filter">
+                            <div class="order-list">
+                                <table class="table table-striped">
                                     <thead>
                                         <tr>
                                             <td>Order ID</td>
@@ -52,34 +52,6 @@
                                                 <span ng-class="{'label label-info' : order.status=='progress', 'label label-warning' : order.status=='pending'}">{{order.status}}</span>
                                             </td>
                                         </tr>
-
-                                        <tr data-status="pending" data->
-                                            <td>1.</td>
-                                            <td><a href="#!order/2">Stickers</a></td>
-                                            <td>Rakesh Jain</td>
-                                            <td>R.B. Mining</td>
-                                            <td>
-                                                <span class="label label-warning">pending</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2.</td>
-                                            <td style="cursor: pointer"><a href="">Letter Pad</a></td>
-                                            <td>Suresh Pareek</td>
-                                            <td>Ms. S. general Store</td>
-                                            <td>
-                                                <span class="label label-warning">pending</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3.</td>
-                                            <td><a href="">Stickers</a></td>
-                                            <td>Ankur Sharma</td>
-                                            <td>Ms. A painters</td>
-                                            <td>
-                                                <span class="label label-warning">pending</span>
-                                            </td>
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -89,7 +61,8 @@
                         <br>
                         <div class="col-sm-12" ng-controller="DueOrderController as dueOrder">
                             <div class="alert alert-warning text-center">Due Payments</div>
-                            <table class="table table-striped">
+                            <div class="order-list">
+                                <table class="table table-striped">
                                 <thead>
                                     <tr>
                                         <td>Order ID</td>
@@ -108,37 +81,23 @@
                                         <td>{{order.due}}</td>
 
                                     </tr>
-                                    <tr>
-                                        <td>1.</td>
-                                        <td style="cursor: pointer"><a href="">Bill Book</a></td>
-                                        <td>Abhishek Soni</td>
-                                        <td>S.Tech</td>
-
-                                        <td>500</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1.</td>
-                                        <td style="cursor: pointer"><a href="">Later pad</a></td>
-                                        <td>Sonu Tiwari</td>
-                                        <td>R.B. Mining</td>
-
-                                        <td>400</td>
-                                    </tr>
                                 </tbody>
                             </table>
+                            </div>
                         </div>
                     </div>
                     <div class="tab-pane fade in" id="customer_panel">
                         <br>
                         <div class="col-sm-12" ng-controller="CustomerOrderController as orders">
                            <div ng-if="orders.isCustomerSelected==true"> 
-                            <div class="alert alert-info text-center">
-                        {{orders.customerData.name}}, {{orders.customerData.contact}}
-                        <br>{{orders.customerData.address}}
-                                <button type="button" data-toggle="modal" data-target="#add_order" class="btn btn-info pull-right"><i class="glyphicon glyphicon-plus"></i> Add new order</button>
+                            <div class="alert alert-info">
+                                
+                                {{orders.customerData.name}}, {{orders.customerData.contact}}
+                                <br>{{orders.customerData.address}}
+                                <button type="button" data-toggle="modal" data-target="#add_order" class="btn btn-default pull-right"><i class="glyphicon glyphicon-plus"></i> Add new order</button>
                             </div>
-                        <div class="orders-list" >
-                            <table class="table table-striped text-left  ">
+                        <div class="order-list" >
+                            <table class="table table-striped">
                                 <thead>
                                     <tr>
                                         <td>Order ID</td>
@@ -160,6 +119,10 @@
                             </table>
                         </div>
                         </div>
+                            
+                            <div ng-if="orders.isCustomerSelected==false"> 
+                                <div class="alert alert-danger">SELECT CUSTOMER FROM LIST</div>
+                            </div>
                         <div class="modal fade" id="add_order" role="dialog">
         <div class="modal-dialog">
             <!--modal-content-->
@@ -202,7 +165,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <span class="alert alert-info">{{orders.orderMessage}}</span>
+                    <span class="alert alert-success">{{orders.orderMessage}}</span>
                     <button type="submit" ng-click="orders.addNewOrder()" class="btn btn-info pull-right">Add Order</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
@@ -214,7 +177,6 @@
                 </div>
             </div>
             <div class="col-sm-5" align="center">
-                <div class="badge badge-pill badge-info">Order Details</div>
                 <br>
                 <div ng-view></div>
 
@@ -222,15 +184,8 @@
         </div>
     </div>
     <footer class="footer">
-        <div class="col-xs-6">
-            <ul class="list-inline">
-                <li><a href="#">About</a></li>
-                <li><a href="#">TnC</a></li>
-                <li><a href="#">Home</a></li>
-            </ul>
-        </div>
-        <div class="col-xs-6 text-right">
-            &copy;2017 saraswatiprinters.in<br> Kotri, Bhilwara, 311603
+        <div class="col-xs-12 text-right ">
+            saraswatiprinters.in | kotri, 311603
         </div>
     </footer>
     

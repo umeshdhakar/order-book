@@ -2,9 +2,9 @@
     'use strict';
     angular.module('order-book')
         .controller('OrderDetailController', OrderDetailController);
-    OrderDetailController.$inject = ['$routeParams', 'OrderDetailService'];
+    OrderDetailController.$inject = ['$routeParams', 'OrderDetailService', '$rootScope'];
 
-    function OrderDetailController($routeParams, OrderDetailService) {
+    function OrderDetailController($routeParams, OrderDetailService, $rootScope) {
         var orderDetail = this;
         orderDetail.param = $routeParams.param;
 
@@ -18,11 +18,15 @@
         orderDetail.updateOrder = function () {
             var promise = OrderDetailService.updateOrder(orderDetail.data);
             promise.then(function (response) {
-                    orderDetail.message = response.statusText;
+                    if(response.statusText==='OK')
+                    orderDetail.message = 'Order Updated';
+                    $rootScope.$broadcast('refreshDueList');
+                    $rootScope.$broadcast('refreshPendingList');
                 })
                 .catch(function (error) {
                     orderDetail.message = response.statusText;
                 });
+                
         }
     }
 

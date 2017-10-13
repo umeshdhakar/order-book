@@ -2,18 +2,23 @@
     'use strict';
     angular.module('order-book')
         .controller('DueOrderController', DueOrderController);
-    DueOrderController.$inject = ['DueOrderService'];
+    DueOrderController.$inject = ['$rootScope','DueOrderService'];
 
-    function DueOrderController(DueOrderService) {
+    function DueOrderController($rootScope, DueOrderService) {
         var dueOrder = this;
-        var promise = DueOrderService.getList();
-        promise.then(function (response) {
+        function getDueOrders(){
+            var promise = DueOrderService.getList();    
+            promise.then(function (response) {
                 dueOrder.list = response.data;
-                console.log(dueOrder.list);
             })
             .catch(function (error) {
                 console.log('something wrong');
             });
+        }
+        getDueOrders();
+        $rootScope.$on('refreshDueList', function(event){
+                getDueOrders();
+        });
     }
 
 })();
