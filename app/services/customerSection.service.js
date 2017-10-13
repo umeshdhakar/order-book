@@ -38,7 +38,18 @@
             });
             return response;
         }
-        service.addNewOrder = function(order) {
+        service.addNewOrder = function(order) {       
+                var d = new Date();
+                var date = d.getDate();
+                var mon = d.getMonth() + 1;
+                var year = d.getFullYear();
+                date = (date < 10) ? '0' + date : date;
+                mon = (mon < 10) ? '0' + mon : mon;
+                order.order_date = (year + '-' + mon + '-' + date) ;
+                order.due = order.total - order.discount - order.advance;
+                if(order.due > 0 ) order.payment = 'due';
+                else               order.payment = 'received';
+            
             var response = $http({
                 method: 'POST',
                 url: (ApiPath + 'orders/new'),
