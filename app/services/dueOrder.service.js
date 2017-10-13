@@ -10,7 +10,7 @@
         service.getList = function () {
             var response = $http({
                 method: 'GET',
-                url: (ApiPath + 'due.json'),
+                url: (ApiPath + 'orders/due'),
             });
             return response;
         }

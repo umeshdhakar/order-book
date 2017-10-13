@@ -10,7 +10,7 @@
         service.getList = function () {
             var response = $http({
                 method: 'GET',
-                url: (ApiPath + 'pending.json'),
+                url: (ApiPath + 'orders/pending'),
             });
             return response;
         }
