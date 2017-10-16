@@ -26,8 +26,19 @@
                     <li class="active"><a href="#order_list" data-toggle="tab">Pending Orders</a></li>
                     <li><a href="#payment_list" data-toggle="tab">Due Payments</a></li>
                     <li><a href="#customer_panel" data-toggle="tab">Customers</a></li>
+                    <li><a href="#search_order" data-toggle="tab">Search Order</a></li>
                 </ul>
                 <div class="tab-content">
+                    <div class="tab-pane fade in" id="search_order">
+                        <div class="col-xs-offset-3 col-xs-6" ng-controller="SearchOrderController as searchOrder" style="margin-top: 50px">
+                            <div class="input-group">
+                                <input type="number" placeholder="Enter Order ID" ng-model="searchOrder.id" class="form-control">
+                                <span class="input-group-btn">
+                                    <a href="#!order/{{searchOrder.id}}" class="btn btn-info"><i class="glyphicon glyphicon-search"></i></a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="tab-pane active fade in" id="order_list"><br>
                         <div class="col-sm-12" ng-controller="PendingOrderController as pendingOrder">
                             <div class="alert alert-info text-center">Printing Status</div>
@@ -200,6 +211,7 @@
     <script src="controllers/customerOrder.controller.js"></script>
     <script src="controllers/orderDetail.controller.js"></script>
     <script src="controllers/dueOrder.controller.js"></script>
+    <script src="controllers/searchOrder.controller.js"></script>
     <script src="controllers/customerSection.controller.js"></script>
     <script src="routing/config.js"></script>
     <script src="services/pendingOrder.service.js"></script>
