@@ -18,7 +18,6 @@
                 console.log('something wrong');
             });
         }
-        getPendingOrders();
         $rootScope.$on('refreshPendingList', function(){
                 getPendingOrders();
         });

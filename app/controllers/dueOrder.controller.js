@@ -15,7 +15,6 @@
                 console.log('something wrong');
             });
         }
-        getDueOrders();
         $rootScope.$on('refreshDueList', function(event){
                 getDueOrders();
         });

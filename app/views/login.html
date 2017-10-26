@@ -1,0 +1,26 @@
+<div class="col-xs-offset-2 col-xs-8">
+    <div ng-hide="vm.isAuthenticated">
+        <h2>Login</h2>
+        <form name="form" ng-submit="form.$valid && vm.login()" novalidate>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" name="username" class="form-control" ng-model="vm.username" required />
+
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" class="form-control" ng-model="vm.password" required />
+            </div>
+            <div class="form-group">
+                <button ng-disabled="vm.loading" type="submit" class="btn btn-primary">Login</button>
+                <img ng-if="vm.loading" src="../assets/img/loading.gif" />
+            </div>
+            <div ng-if="vm.error" class="alert alert-info">{{vm.error}}</div>
+        </form>
+    </div>
+    <div ng-if="vm.isAuthenticated">
+        <h3>You are Logged in.</h3>
+        <br>
+        <button ng-click="vm.logout()" class="btn btn-primary">Log Out</button>
+    </div>
+</div>

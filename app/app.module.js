@@ -1,5 +1,18 @@
 (function () {
     'use strict';
-    angular.module('order-book', ['ngRoute'])
+    angular.module('order-book', ['ngRoute', 'ngStorage'])
+        .run(run)
         .constant('ApiPath', 'http://127.0.0.1:8000/webapi/');
+    
+    run.$inject = ['$http', '$localStorage', '$location'];
+    function run($http, $localStorage, $location){
+        if($localStorage.currentUser) {
+            $http.defaults.headers.common.Authorization = $localStorage.currentUser.token;
+        }
+        else {
+            $location.path('/login');
+        }
+        
+    }
 })();
+

@@ -13,6 +13,11 @@
                     controller: 'CustomerSectionController',
                     controllerAs: 'customers'
                 })
+                .when('/login', {
+                    templateUrl: '../views/login.html',
+                    controller: 'AuthenticationController',
+                    controllerAs: 'vm'
+                })
                 .otherwise({
                     template: '<h3>Click on Order to show Details.</h3>'
                 });
