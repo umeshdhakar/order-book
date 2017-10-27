@@ -10,9 +10,6 @@
             var promise = DueOrderService.getList();    
             promise.then(function (response) {
                 dueOrder.list = response.data;
-            })
-            .catch(function (error) {
-                console.log('something wrong');
             });
         }
         $rootScope.$on('refreshDueList', function(event){

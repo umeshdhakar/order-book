@@ -11,9 +11,6 @@
         var promise = OrderDetailService.getOrderDetail(orderDetail.param);
         promise.then(function (response) {
                 orderDetail.data = response.data;
-            })
-            .catch(function (error) {
-                console.log('something wrong');
             });
         orderDetail.updateOrder = function () {
             var promise = OrderDetailService.updateOrder(orderDetail.data);

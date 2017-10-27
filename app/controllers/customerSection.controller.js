@@ -13,9 +13,6 @@
             var promise = CustomerSectionService.getCustomerList();
             promise.then(function (response) {
                     customers.list = response.data;
-                })
-                .catch(function (error) {
-                    console.log('something wrong');
                 });
         }
         getCustomerList();
@@ -27,7 +24,7 @@
                 customers.message = 'User Added Successfully';
                 getCustomerList();
             }).catch(function (error) {
-                console.log('wrong');
+                customers.message = 'Unable to add.';
             });
             
         }
