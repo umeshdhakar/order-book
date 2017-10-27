@@ -13,7 +13,6 @@
             </div>
             <div class="form-group">
                 <button ng-disabled="vm.loading" type="submit" class="btn btn-primary">Login</button>
-                <img ng-if="vm.loading" src="../assets/img/loading.gif" />
             </div>
             <div ng-if="vm.error" class="alert alert-info">{{vm.error}}</div>
         </form>

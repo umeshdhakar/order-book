@@ -14,3 +14,10 @@
     height: 300px;
     overflow-y: auto;
 }
+.loading {
+    position: absolute;
+    left: 0px;
+    top: 225px;
+    width: 100%;
+    z-index: 9999;
+}

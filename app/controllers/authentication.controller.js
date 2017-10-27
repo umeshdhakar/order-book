@@ -13,7 +13,6 @@
             vm.isAuthenticated = false;
 
         vm.login = function () {
-            vm.loading = true;
             var promise = AuthenticationService.login(vm.username, vm.password);
             promise.then(function (response) {
                     if (response.data.token) {
@@ -28,13 +27,10 @@
                         $rootScope.$broadcast('refreshPendingList');
                         $location.path('/');
                     } else {
-                        vm.loading = false;
                         vm.error = "Invalid details.";
                     }
                 })
                 .catch(function (error) {
-
-                    vm.loading = false;
                     vm.error = "Oops! Something Wrong!";
                 });
         };
