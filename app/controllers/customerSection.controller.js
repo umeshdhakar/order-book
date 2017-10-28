@@ -2,9 +2,9 @@
     'use strict';
     angular.module('order-book')
         .controller('CustomerSectionController', CustomerSectionController);
-    CustomerSectionController.$inject = ['$rootScope', 'CustomerSectionService'];
+    CustomerSectionController.$inject = ['$rootScope', '$localStorage', 'CustomerSectionService'];
 
-    function CustomerSectionController($rootScope, CustomerSectionService) {
+    function CustomerSectionController($rootScope, $localStorage, CustomerSectionService) {
         var customers = this;
         customers.data = {};
 
@@ -15,7 +15,10 @@
                     customers.list = response.data;
                 });
         }
-        getCustomerList();
+        
+        if($localStorage.currentUser){
+            getCustomerList();
+        }
         
         customers.addCustomer = function () {
             var promise = CustomerSectionService.addCustomer(customers.data);
