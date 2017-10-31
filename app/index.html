@@ -105,10 +105,18 @@
                         <div class="col-sm-12" ng-controller="CustomerOrderController as orders">
                            <div ng-if="orders.isCustomerSelected==true"> 
                             <div class="alert alert-info">
+                                <div class="row">
+                                <div class="col-xs-7 text-left">
+                                    {{orders.customerData.name}}<br>{{orders.customerData.address}}
+                                </div>
+                                <div class="col-xs-4">
+                                    1# {{orders.customerData.contact_1}} <br> 2# {{orders.customerData.contact_2}}
+                                </div>
+                                <div class="col-xs-1">
+                                    <button type="button" data-toggle="modal" data-target="#add_order" class="btn btn-default pull-right"><i class="glyphicon glyphicon-plus"></i> <br>Add Order</button>
+                                </div>
+                                </div>
                                 
-                                {{orders.customerData.name}}, {{orders.customerData.contact}}
-                                <br>{{orders.customerData.address}}
-                                <button type="button" data-toggle="modal" data-target="#add_order" class="btn btn-default pull-right"><i class="glyphicon glyphicon-plus"></i> Add new order</button>
                             </div>
                         <div class="order-list" >
                             <table class="table table-striped">
@@ -127,7 +135,7 @@
                                         <td><a href="#!order/{{order.id}}">{{order.type}}</a></td>
                                         <td>{{order.firm}}</td>
                                         <td>{{order.order_date}}</td>
-                                        <td ng-class="{'label label-warning' : order.status=='pending', 'label label-default' : order.status=='completed', 'label label-info' : order.status=='progress', 'label label-success' : order.status=='delivered'}">{{order.status}}</td>
+                                        <td><span ng-class="{'label label-warning' : order.status=='pending', 'label label-default' : order.status=='completed', 'label label-info' : order.status=='progress', 'label label-success' : order.status=='delivered'}">{{order.status}}</span></td>
                                     </tr>
                                 </tbody>
                             </table>
