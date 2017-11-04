@@ -1,8 +1,6 @@
 (function () {
     'use strict';
-    angular.module('order-book')
-        .controller('CustomerOrderController', CustomerOrderController);
-
+    
     CustomerOrderController.$inject = ['$rootScope', 'CustomerSectionService'];
 
     function CustomerOrderController($rootScope, CustomerSectionService) {
@@ -40,4 +38,5 @@
             });
         }
     }
+    module.exports = CustomerOrderController;
 })();

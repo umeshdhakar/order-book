@@ -1,0 +1,30 @@
+{
+  "name": "order-book",
+  "version": "1.0.0",
+  "description": "Order Managemet App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/umeshdhakar/order-book.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/umeshdhakar/order-book/issues"
+  },
+  "homepage": "https://github.com/umeshdhakar/order-book#readme",
+  "devDependencies": {
+    "angular": "^1.6.6",
+    "webpack": "^3.8.1"
+  },
+  "dependencies": {
+    "angular-route": "^1.6.6",
+    "ng-storage": "^0.3.2",
+    "ngstorage": "^0.3.11"
+  }
+}

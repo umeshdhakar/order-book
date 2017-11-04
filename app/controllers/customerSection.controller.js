@@ -1,7 +1,5 @@
 (function () {
     'use strict';
-    angular.module('order-book')
-        .controller('CustomerSectionController', CustomerSectionController);
     CustomerSectionController.$inject = ['$rootScope', '$localStorage', 'CustomerSectionService'];
 
     function CustomerSectionController($rootScope, $localStorage, CustomerSectionService) {
@@ -35,4 +33,6 @@
                 $rootScope.$broadcast('showCustomerOrders', {id: customerID });
         }
     }
+    
+    module.exports = CustomerSectionController;
 })();

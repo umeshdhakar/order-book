@@ -1,7 +1,5 @@
 (function () {
     'use strict';
-    angular.module('order-book')
-        .service('DueOrderService', DueOrderService);
 
     DueOrderService.$inject = ['$http', 'ApiPath'];
 
@@ -15,5 +13,7 @@
             return response;
         }
     }
+    
+    module.exports = DueOrderService;
 
 })();

@@ -1,7 +1,6 @@
 (function () {
     'use strict';
-    angular.module('order-book')
-        .controller('OrderDetailController', OrderDetailController);
+    
     OrderDetailController.$inject = ['$routeParams', 'OrderDetailService', '$rootScope'];
 
     function OrderDetailController($routeParams, OrderDetailService, $rootScope) {
@@ -26,5 +25,6 @@
                 
         }
     }
+    module.exports = OrderDetailController;
 
 })();

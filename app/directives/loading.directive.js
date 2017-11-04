@@ -1,7 +1,5 @@
 (function () {
     'use strict';
-    angular.module('order-book')
-        .directive('loading', LoadingSpinner);
     LoadingSpinner.$inject = ['$http'];
 
     function LoadingSpinner($http) {
@@ -23,4 +21,5 @@
         };
         return ddo;
     }
+    module.exports = LoadingSpinner;
 })();

@@ -1,7 +1,5 @@
 (function () {
     'use strict';
-    angular.module('order-book')
-        .service('AuthenticationService', AuthenticationService);
 
     AuthenticationService.$inject = ['$http', 'ApiPath'];
 
@@ -19,4 +17,5 @@
             return response;
         }
     }
+    module.exports = AuthenticationService;
 })();

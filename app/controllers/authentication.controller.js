@@ -1,7 +1,5 @@
 (function () {
     'use strict';
-    angular.module('order-book')
-        .controller('AuthenticationController', AuthenticationController);
     AuthenticationController.$inject = ['$rootScope', '$location', '$localStorage', '$http', 'AuthenticationService'];
 
     function AuthenticationController($rootScope, $location, $localStorage, $http, AuthenticationService) {
@@ -44,4 +42,5 @@
                 vm.error = "Oops!";
         }
     }
+    module.exports = AuthenticationController;
 })();

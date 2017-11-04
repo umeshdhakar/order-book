@@ -1,7 +1,6 @@
 (function () {
     'use strict';
-    angular.module('order-book')
-        .controller('DueOrderController', DueOrderController);
+    
     DueOrderController.$inject = ['$rootScope','$localStorage','DueOrderService'];
 
     function DueOrderController($rootScope, $localStorage, DueOrderService) {
@@ -20,5 +19,5 @@
                 getDueOrders();
         });
     }
-
+    module.exports = DueOrderController;
 })();

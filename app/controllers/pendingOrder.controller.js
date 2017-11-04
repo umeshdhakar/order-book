@@ -1,7 +1,6 @@
 (function () {
     'use strict';
-    angular.module('order-book')
-        .controller('PendingOrderController', PendingOrderController);
+    
     PendingOrderController.$inject = ['$rootScope', '$localStorage', 'PendingOrderService'];
 
     function PendingOrderController($rootScope, $localStorage, PendingOrderService) {
@@ -21,5 +20,6 @@
                 getPendingOrders();
         });
     }
+    module.exports = PendingOrderController;
 
 })();
