@@ -33,11 +33,11 @@
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane fade in" id="search_order">
-                        <div class="col-xs-offset-3 col-xs-6" ng-controller="SearchOrderController as searchOrder" style="margin-top: 50px">
+                        <div class="col-xs-offset-3 col-xs-6" style="margin-top: 50px">
                             <div class="input-group">
-                                <input type="number" placeholder="Enter Order ID" ng-model="searchOrder.id" class="form-control">
+                                <input type="number" placeholder="Enter Order ID" ng-model="searchOrderId" class="form-control">
                                 <span class="input-group-btn">
-                                    <a href="#!order/{{searchOrder.id}}" class="btn btn-info"><i class="glyphicon glyphicon-search"></i></a>
+                                    <a href="#!order/{{searchOrderId}}" class="btn btn-info"><i class="glyphicon glyphicon-search"></i></a>
                                 </span>
                             </div>
                         </div>
@@ -226,7 +226,6 @@
     <script src="controllers/customerOrder.controller.js"></script>
     <script src="controllers/orderDetail.controller.js"></script>
     <script src="controllers/dueOrder.controller.js"></script>
-    <script src="controllers/searchOrder.controller.js"></script>
     <script src="controllers/customerSection.controller.js"></script>
     <script src="controllers/authentication.controller.js"></script>
     <script src="routing/config.js"></script>
